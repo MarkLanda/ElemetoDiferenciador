@@ -1,3 +1,47 @@
 
 -----------------------------ALTERAR TABLAS--------------------------------------------
 ALTER TABLE PacienteLog ADD fechaMoficacion DATETIME  ......(Agregar un campo a una tabla)
+UPDATE Paciente SET nombre = 'Jorge Ernesto' WHERE idPaciente = 10....(Actualizar un registro de una tabla)
+
+
+
+
+
+------------------------------ TRIGGERS ---------------------------------------------------
+1) TRIGGERS de tipo INSERT: El último registro insertado en la tabla Paciente que tenga
+                            el idpais = 'MEX', con este trigger, se insertará 
+  Nota: para los triggers, la palabra reservada inserted lo toma como el último registro
+        insertado en una tabla
+
+              CREATE TRIGGER PacientesCreados ON Paciente
+              AFTER INSERT
+              AS
+              
+              IF (SELECT idpais FROM inserted) = 'MEX'
+              	INSERT into PacienteLog (idpaciente, idpais, fechaAlta)
+              		SELECT i.idpaciente, i.idpais, getdate()FROM inserted i
+
+2) TRIGGERS de tipo UPDATE: Nuestro Trigger se activará cuando se actualice un registro
+Nota: Aquí lo que se desea hacer es que cada que se actualice un registro en la tabla "Paciente",
+debería ser el último registrado, se inserte/actualice un registro en la tabla "PacienteLog" con
+la fecha de actualización en la que se actualizó el registro.
+
+                  CREATE TRIGGER PacientesModificados ON Paciente
+                  AFTER UPDATE
+                  AS
+                  
+                  IF EXISTS ( SELECT IDPACIENTE FROM PacienteLog
+                  			 WHERE idpaciente = (SELECT idpaciente FROM inserted))
+                     UPDATE PacienteLog SET fechaMoficacion = GETDATE()
+                  	  WHERE idpaciente = (SELECT idpaciente FROM inserted)
+                  
+                  ELSE 
+                  	INSERT INTO PacienteLog (idpaciente, idpais, fechaMoficacion)
+                  	SELECT idpaciente, idpais, GETDATE() FROM insereted 
+
+
+
+
+
+
+
