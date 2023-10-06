@@ -1,1 +1,3 @@
 
+-----------------------------ALTERAR TABLAS--------------------------------------------
+ALTER TABLE PacienteLog ADD fechaMoficacion DATETIME  ......(Agregar un campo a una tabla)
