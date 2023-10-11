@@ -1,0 +1,8 @@
+---------------------------------------------- Fechas ---------------------------------------------------
+
+1)Si queremos crear una tabla de fechas sin imporatción, deberás de crear un query en blanco,
+  luego, digitarás lo siguiente en el lenguaje M:
+
+  = List.Dates(Origen,Number.From(DateTime.LocalNow()) - Number.From(Origen),#duration(1,0,0,0))
+
+ Luego tendrás que convertir a tabla.
