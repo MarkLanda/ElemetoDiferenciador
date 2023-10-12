@@ -4,7 +4,9 @@ ALTER TABLE PacienteLog ADD fechaMoficacion DATETIME  ......(Agregar un campo a 
 UPDATE Paciente SET nombre = 'Jorge Ernesto' WHERE idPaciente = 10....(Actualizar un registro de una tabla)
 
 
-
+-----------------------------ALTERAR TABLAS--------------------------------------------
+* cuando la fecha está en otro formato que no sea "año/mes/dia hora" el convert lo tienes que
+  poner el código "103"
 
 
 ------------------------------ TRIGGERS ---------------------------------------------------
