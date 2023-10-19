@@ -1,15 +1,21 @@
 
------------------------------ALTERAR TABLAS--------------------------------------------
+----------------------------- ALTERAR TABLAS ----------------------------------------------------------
 ALTER TABLE PacienteLog ADD fechaMoficacion DATETIME  ......(Agregar un campo a una tabla)
 UPDATE Paciente SET nombre = 'Jorge Ernesto' WHERE idPaciente = 10....(Actualizar un registro de una tabla)
 
 
------------------------------ALTERAR TABLAS--------------------------------------------
+-----------------------------ALTERAR TABLAS------------------------------------------------------------
 * cuando la fecha está en otro formato que no sea "año/mes/dia hora" el convert lo tienes que
   poner el código "103"
 
+------------------------------ JOINS ------------------------------------------------------------------
+1) Cuando quieres seleccionar sólo un campo de una tabla y todos los demás de otras
+  SELECT A.* , B.TablaQueQuieresSeleccionar FROM Tabla A
+  LEFT JOIN Tabla B on A.cod = B.cod
 
------------------------------- TRIGGERS ---------------------------------------------------
+
+
+------------------------------ TRIGGERS ---------------------------------------------------------------
 1) TRIGGERS de tipo INSERT: El último registro insertado en la tabla Paciente que tenga
                             el idpais = 'MEX', con este trigger, se insertará 
   Nota: para los triggers, la palabra reservada inserted lo toma como el último registro
@@ -42,7 +48,10 @@ la fecha de actualización en la que se actualizó el registro.
                   	SELECT idpaciente, idpais, GETDATE() FROM insereted 
 
 
-
+-------------------------------------------  CASOS -------------------------------------------------
+1) quiero contar la cantidad de puntos de entrega de cada cliente:
+   SELECT Cod_cliente, COUNT (*) AS Cant_correos 
+   FROM (tabla donde están los P.E. por cliente) GROUP BY Cod_cliente
 
 
 
