@@ -4,6 +4,12 @@ ALTER TABLE PacienteLog ADD fechaMoficacion DATETIME  ......(Agregar un campo a 
 UPDATE Paciente SET nombre = 'Jorge Ernesto' WHERE idPaciente = 10....(Actualizar un registro de una tabla)
 
 
+** Agregar un campo con la diferencia en años
+ALTER TABLE CL_EMPLEADOS
+ADD TIEMPO_SERVICIO_EMPLEADO AS DATEDIFF(YEAR, Fecha_Ingreso, GETDATE())
+
+
+
 -----------------------------ALTERAR TABLAS------------------------------------------------------------
 * cuando la fecha está en otro formato que no sea "año/mes/dia hora" el convert lo tienes que
   poner el código "103"
