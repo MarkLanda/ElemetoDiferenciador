@@ -8,6 +8,32 @@ UPDATE Paciente SET nombre = 'Jorge Ernesto' WHERE idPaciente = 10....(Actualiza
 ALTER TABLE CL_EMPLEADOS
 ADD TIEMPO_SERVICIO_EMPLEADO AS DATEDIFF(YEAR, Fecha_Ingreso, GETDATE())
 
+1) Agregar un nuevo campo:
+   Alter Table Tabla_1 ADD Apellido VARCHAR (50)
+
+2) Eliminar una columna:
+   Alter table Tabla_1 DROP COLUMN Apellido
+
+3) Cambiar el tipo de dato de una columna
+   ALTER TABLE Table_1 Apellido VARCHAR (25)
+
+-----------------------------  BUSCAR CON FILTROS -------------------------------------------------
+1) Busca registros que comiencen con la palabra "Li"
+   SELECT * FROM Table_1 LIKE 'Li%'
+
+2) Busca registros que terminen con la palabra "Li"
+   SELECT * FROM Table_1 LIKE '%Li'
+
+3) Busca registros que contengan "Li"
+   SELECT * FROM Table_1 LIKE '%Li%'
+
+4) Seleccionar sólo los registros de la fecha de noviembre de todos los años
+   SELECT * FROM Table_1 WHERE MONTH(Campo_Fecha) = 11
+
+5) Seleccionar registros de Hoy, Mañana y Ayer
+   SELECT GETDAY() AS Hoy,
+          DATEADD(DAY,1,GETDAY()) AS Mañana,
+          DATEADD(DAY,-1,GETDAY()) AS Ayer,
 
 
 -----------------------------ALTERAR TABLAS------------------------------------------------------------
@@ -54,6 +80,10 @@ la fecha de actualización en la que se actualizó el registro.
                   	SELECT idpaciente, idpais, GETDATE() FROM insereted 
 
 
+----------------------------------------- DELETE -----------------------------------------------
+* Cuando deseas eliminar registros, usa DELETE
+* Cuando deseas eliminar el objeto completo usa DROP TABLE
+* Cuando deseas eliminar todas las filas de la tabla, usa TRUNCATE TABLE
 -------------------------------------------  CASOS -------------------------------------------------
 1) quiero contar la cantidad de puntos de entrega de cada cliente:
    SELECT Cod_cliente, COUNT (*) AS Cant_correos 
