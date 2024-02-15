@@ -1,0 +1,8 @@
+----- Conceptos Basicos -----
+ 1. Capa Stg
+ 2. Capa ODS (oerational data store)
+  * MD: 'Maestra Diaria'
+  * UD: ultima diaria, stocks
+  * HD: historica diaria
+  * HM: Historica Mensual
+ 3. Capa BDS (business data store)
