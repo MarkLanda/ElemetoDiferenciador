@@ -89,6 +89,12 @@ la fecha de actualización en la que se actualizó el registro.
    SELECT Cod_cliente, COUNT (*) AS Cant_correos 
    FROM (tabla donde están los P.E. por cliente) GROUP BY Cod_cliente
 
+2) cuando quieres trasladar los datos de una tabla a otra que esta dentro de un esquema,
+   tal cual los datos de una tabla a otra en otro esquema:
+   
+    SELECT * INTO Ods.Tabla_1.1
+    FROM Tabla_1
+
 
 
 
