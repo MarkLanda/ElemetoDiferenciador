@@ -1,0 +1,11 @@
+------------------------------ Matrices --------------------------
+
+* En una tabla de 4x4, para seleccionar algún valor de la tabla:
+    A[0,:] --> Para seleccionar toda la primera fila
+    A[:,0] --> Para seleccionar toda la primera columna
+    A[0,0] --> Para seleccionar el primer valor de la fila y columna
+
+* Para rellenar una matriz:
+  - np.reshape( *,*,'C') : para rellenar fila por fila.
+  - np.reshape( *,*,'F') : para rellenar columna por columna.
+  - np.array() : para rellenar lista por lista (filas).
